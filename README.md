@@ -1,7 +1,7 @@
 # Nodejs-Asynchronous-Programming
 History of the way to programming asynchronously in Node.js.
 
-Node.js异步编程。
+## Node.js异步编程
 
 我们知道，Node.js编写的应用是单进程的，它通过异步回调的方式来解决并发的问题，这是Node.js最大的特点之一。
 所以最初的时候，大家通过回调函数的方式来编写异步程序（以Node.js的fs模块为例）：
@@ -20,9 +20,9 @@ var fs = require('fs');
 
 fs.readfile('file1', function(err, data) {
    // do your work 1 here
-   asyncFun2('file2', function(err, data) {
+   fs.readfile('file2', function(err, data) {
      // do your work 2 here
-     asyncFun3('file3', function(err, data) {
+     fs.readfile('file3', function(err, data) {
        // do your work 3 here  
      });
    });
