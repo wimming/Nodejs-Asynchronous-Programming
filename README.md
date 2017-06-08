@@ -1,4 +1,4 @@
-# Nodejs-Asynchronous-programming
+# Nodejs-Asynchronous-Programming
 History of the way to programming asynchronously in Node.js.
 
 我们知道，Node.js编写的应用是单进程的，它通过异步回调的方式来解决并发的问题，这是Node.js最大的特点之一。
@@ -44,7 +44,7 @@ co.wrap(function* (req, res, next) {
 ```
 以上代码中，引入了2个模块：co和bluebird。
 
-co：只要将原本要用异步回调/promise写法的代码放入一个generator函数并且传递给co模块，里面的代码就能够被正确地异步执行。co模块起到了一个generator函数执行器的作用，以分段执行函数的方式完成异步操作。
+co：只要将原本要用promise写法的代码放入一个generator函数并且传递给co模块，里面的代码就能够被正确地异步执行。co模块起到了一个generator函数执行器的作用，以分段执行函数的方式完成异步操作。
 
 bluebird：这个模块提供了统一的操作能“promisify”(promise化)所有按照标准编写的回调函数。所谓promise化，就是将
 ```javascript
@@ -73,4 +73,7 @@ co.wrap(function* (req, res, next) {
 
 再后来，ecmascript迎来了ECMAScript 2016版本（也称ES7），这个版本内置了目前最主流的异步解决方案：async/await。
 ```javascript
+async function() {
+  let data = await readFileAsync('filepath');
+}
 ```
